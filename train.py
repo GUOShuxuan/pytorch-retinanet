@@ -39,7 +39,8 @@ def main(args=None):
 
         if parser.coco_path is None:
             raise ValueError('Must provide --coco_path when training on COCO,')
-
+        
+        # coco2014 coco2017
         dataset_train = CocoDataset(parser.coco_path, set_name='train2017',
                                     transform=transforms.Compose([Normalizer(), Augmenter(), Resizer()]))
         dataset_val = CocoDataset(parser.coco_path, set_name='val2017',
